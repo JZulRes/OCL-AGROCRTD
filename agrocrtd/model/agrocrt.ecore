@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="agrocrt" nsURI="http://www.example.org/agrocrt" nsPrefix="agrocrt">
+  <eClassifiers xsi:type="ecore:EClass" name="IngenieroAgronomo" eSuperTypes="#//Empleado">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fertilizante" eType="#//Fertilizante"
+        eOpposite="#//Fertilizante/ingenieroagronomo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abono" eType="#//Abono"
+        eOpposite="#//Abono/ingenieroagronomo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruta" eType="#//Ruta" eOpposite="#//Ruta/ingenieroagronomo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="suelo" eType="#//Suelo"
+        eOpposite="#//Suelo/ingenieroagronomo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="suministro" eType="#//Suministro"
+        eOpposite="#//Suministro/ingenieroagronomo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plaga" eType="#//Plaga"
+        eOpposite="#//Plaga/ingenieroagronomo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensorderiego" eType="#//SensorDeRiego"
+        eOpposite="#//SensorDeRiego/ingenieroagronomo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flor" eType="#//Flor" eOpposite="#//Flor/ingenieroagronomo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Supervisor" eSuperTypes="#//Empleado">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="camadecultivo" eType="#//CamaDeCultivo"
+        eOpposite="#//CamaDeCultivo/supervisor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plaga" eType="#//Plaga"
+        eOpposite="#//Plaga/supervisor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Empleado">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="codigoEmpleado" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apellido" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horario" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operario" eSuperTypes="#//Empleado">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fertilizante" upperBound="-1"
+        eType="#//Fertilizante" eOpposite="#//Fertilizante/operario"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reporte" eType="#//Reporte"
+        eOpposite="#//Reporte/operario"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruta" eType="#//Ruta" eOpposite="#//Ruta/operario"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abono" eType="#//Abono"
+        eOpposite="#//Abono/operario"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estado" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ruta">
+    <eOperations name="planificar"/>
+    <eOperations name="recorre"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operario" eType="#//Operario"
+        eOpposite="#//Operario/ruta"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/ruta"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cultivo" upperBound="-1"
+        eType="#//Cultivo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ubicacion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duracion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Suelo">
+    <eOperations name="analiza"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/suelo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cultivo" upperBound="-1"
+        eType="#//Cultivo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ubicacion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Suministro">
+    <eOperations name="regula"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/suministro"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaCaducidad" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="precio" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fertilizante">
+    <eOperations name="preparar"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operario" eType="#//Operario"
+        eOpposite="#//Operario/fertilizante"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/fertilizante"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="composicion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cantidad" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Abono">
+    <eOperations name="preparar"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operario" eType="#//Operario"
+        eOpposite="#//Operario/abono"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/abono"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="composicion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cantidad" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cultivo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="camadecultivo" upperBound="-1"
+        eType="#//CamaDeCultivo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensorderiego" upperBound="-1"
+        eType="#//SensorDeRiego" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ubicacion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condicion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SensorDeRiego">
+    <eOperations name="registra"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/sensorderiego"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cantidadDeAgua" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cantidadDeSuministro" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaDeRiego" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estado" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CamaDeCultivo">
+    <eOperations name="controla"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supervisor" eType="#//Supervisor"
+        eOpposite="#//Supervisor/camadecultivo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flor" upperBound="-1" eType="#//Flor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reporte" upperBound="-1"
+        eType="#//Reporte" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extencion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="porcentajeDeHidratacion"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="porcentajeDeHumedad" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flor">
+    <eOperations name="registra"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/flor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plaga" upperBound="-1"
+        eType="#//Plaga" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="especie" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estado" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plaga">
+    <eOperations name="registra"/>
+    <eOperations name="erradica"/>
+    <eOperations name="reporta"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supervisor" eType="#//Supervisor"
+        eOpposite="#//Supervisor/plaga"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ingenieroagronomo" eType="#//IngenieroAgronomo"
+        eOpposite="#//IngenieroAgronomo/plaga"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tratamiento" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reporte">
+    <eOperations name="genera"/>
+    <eOperations name="supervisar"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operario" eType="#//Operario"
+        eOpposite="#//Operario/reporte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estado" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fecha" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+</ecore:EPackage>

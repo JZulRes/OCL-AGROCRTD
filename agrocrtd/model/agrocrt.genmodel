@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/agrocrt/src" modelPluginID="agrocrt" modelName="Agrocrt"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>agrocrt.ecore</foreignModel>
+  <genPackages prefix="Agrocrt" disposableProviderFactory="true" ecorePackage="agrocrt.ecore#/">
+    <genClasses ecoreClass="agrocrt.ecore#//IngenieroAgronomo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/fertilizante"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/abono"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/ruta"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/suelo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/suministro"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/plaga"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/sensorderiego"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//IngenieroAgronomo/flor"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Supervisor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Supervisor/camadecultivo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Supervisor/plaga"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Empleado">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Empleado/codigoEmpleado"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Empleado/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Empleado/apellido"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Empleado/horario"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Operario">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Operario/fertilizante"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Operario/reporte"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Operario/ruta"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Operario/abono"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Operario/estado"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Ruta">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Ruta/operario"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Ruta/ingenieroagronomo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Ruta/cultivo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Ruta/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Ruta/ubicacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Ruta/duracion"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Ruta/planificar"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Ruta/recorre"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Suelo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Suelo/ingenieroagronomo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Suelo/cultivo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suelo/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suelo/ubicacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suelo/descripcion"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Suelo/analiza"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Suministro">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Suministro/ingenieroagronomo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suministro/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suministro/fechaCaducidad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suministro/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suministro/descripcion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Suministro/precio"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Suministro/regula"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Fertilizante">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Fertilizante/operario"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Fertilizante/ingenieroagronomo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Fertilizante/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Fertilizante/descripcion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Fertilizante/composicion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Fertilizante/cantidad"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Fertilizante/preparar"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Abono">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Abono/operario"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Abono/ingenieroagronomo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Abono/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Abono/descripcion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Abono/composicion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Abono/cantidad"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Abono/preparar"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Cultivo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Cultivo/camadecultivo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Cultivo/sensorderiego"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Cultivo/ubicacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Cultivo/descripcion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Cultivo/condicion"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//SensorDeRiego">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//SensorDeRiego/ingenieroagronomo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//SensorDeRiego/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//SensorDeRiego/cantidadDeAgua"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//SensorDeRiego/cantidadDeSuministro"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//SensorDeRiego/fechaDeRiego"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//SensorDeRiego/estado"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//SensorDeRiego/registra"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//CamaDeCultivo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//CamaDeCultivo/supervisor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agrocrt.ecore#//CamaDeCultivo/flor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agrocrt.ecore#//CamaDeCultivo/reporte"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//CamaDeCultivo/tipo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//CamaDeCultivo/extencion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//CamaDeCultivo/porcentajeDeHidratacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//CamaDeCultivo/porcentajeDeHumedad"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//CamaDeCultivo/controla"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Flor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Flor/ingenieroagronomo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Flor/plaga"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Flor/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Flor/especie"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Flor/estado"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Flor/registra"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Plaga">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Plaga/supervisor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Plaga/ingenieroagronomo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Plaga/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Plaga/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Plaga/tratamiento"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Plaga/registra"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Plaga/erradica"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Plaga/reporta"/>
+    </genClasses>
+    <genClasses ecoreClass="agrocrt.ecore#//Reporte">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agrocrt.ecore#//Reporte/operario"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Reporte/estado"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Reporte/fecha"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agrocrt.ecore#//Reporte/descripcion"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Reporte/genera"/>
+      <genOperations ecoreOperation="agrocrt.ecore#//Reporte/supervisar"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
